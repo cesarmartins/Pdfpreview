@@ -1,0 +1,18 @@
+<?php
+/* @var $block CesarMartins\Pdfpreview\Block\Pdfpreview */
+$books = $block->getCollectionBook();
+
+?>
+<div class="container">
+    Lista de revistas cadastradas
+    <ul>
+        <?php foreach ($books as $book) {
+                $url = $block->getUrl("pdfpreview/book/index",["id" => $book["pdfpreview_id"]]);
+        ?>
+
+            <li><a href="<?= $url; ?>"><?= $book["title"]; ?></a></li>
+
+        <?php } ?>
+    </ul>
+</div>
+

@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">cesarMartins_pdfpreview_pdfpreview_form.pdfpreview_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="CesarMartins\Pdfpreview\Block\Adminhtml\Pdfpreview\Edit\BackButton"/>
+            <button name="delete" class="CesarMartins\Pdfpreview\Block\Adminhtml\Pdfpreview\Edit\DeleteButton"/>
+            <button name="save" class="CesarMartins\Pdfpreview\Block\Adminhtml\Pdfpreview\Edit\SaveButton"/>
+            <button name="save_and_continue"
+                    class="CesarMartins\Pdfpreview\Block\Adminhtml\Pdfpreview\Edit\SaveAndContinueButton"/>
+        </buttons>
+        <namespace>cesarMartins_pdfpreview_pdfpreview_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>cesarMartins_pdfpreview_pdfpreview_form.pdfpreview_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="pdfpreview_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider name="pdfpreview_form_data_source" class="CesarMartins\Pdfpreview\Model\Pdfpreview\DataProvider">
+            <settings>
+                <requestFieldName>pdfpreview_id</requestFieldName>
+                <primaryFieldName>pdfpreview_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>General</label>
+        </settings>
+        <field name="status" component="Magento_Ui/js/form/element/single-checkbox-toggle-notice"
+               formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Status</label>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="title" formElement="input" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">Pdfpreview</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Title</label>
+                <dataScope>title</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="author" formElement="input" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">Pdfpreview</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Author</label>
+                <dataScope>author</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="description" formElement="textarea" sortOrder="30">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">Pdfpreview</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Description</label>
+                <dataScope>description</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="thumbnail">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="dataScope" xsi:type="string">image</item>
+                    <item name="source" xsi:type="string">thumbnail</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="cesarMartins_pdfpreview/pdfpreview/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="bar" formElement="fileUploader">
+            <settings>
+                <label translate="true">Pdf Book</label>
+            </settings>
+            <formElements>
+                <fileUploader>
+                    <settings>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">cesarMartins_pdfpreview/pdfpreview/upload</param>
+                        </uploaderConfig>
+                    </settings>
+                </fileUploader>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

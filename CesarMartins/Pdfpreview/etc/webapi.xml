@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/cesarMartins-pdfpreview/pdfpreview" method="POST">
+		<service class="CesarMartins\Pdfpreview\Api\PdfpreviewRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="CesarMartins_Pdfpreview::Pdfpreview_save"/>
+		</resources>
+	</route>
+	<route url="/V1/cesarMartins-pdfpreview/pdfpreview/search" method="GET">
+		<service class="CesarMartins\Pdfpreview\Api\PdfpreviewRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="CesarMartins_Pdfpreview::Pdfpreview_view"/>
+		</resources>
+	</route>
+	<route url="/V1/cesarMartins-pdfpreview/pdfpreview/:pdfpreviewId" method="GET">
+		<service class="CesarMartins\Pdfpreview\Api\PdfpreviewRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="CesarMartins_Pdfpreview::Pdfpreview_view"/>
+		</resources>
+	</route>
+	<route url="/V1/cesarMartins-pdfpreview/pdfpreview/:pdfpreviewId" method="PUT">
+		<service class="CesarMartins\Pdfpreview\Api\PdfpreviewRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="CesarMartins_Pdfpreview::Pdfpreview_update"/>
+		</resources>
+	</route>
+	<route url="/V1/cesarMartins-pdfpreview/pdfpreview/:pdfpreviewId" method="DELETE">
+		<service class="CesarMartins\Pdfpreview\Api\PdfpreviewRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="CesarMartins_Pdfpreview::Pdfpreview_delete"/>
+		</resources>
+	</route>
+</routes>

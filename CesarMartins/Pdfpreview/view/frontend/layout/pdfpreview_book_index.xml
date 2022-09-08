@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="CesarMartins_Pdfpreview::css/dflip.min.css"/>
+        <css src="CesarMartins_Pdfpreview::css/themify-icons.min.css"/>
+        <link src="CesarMartins_Pdfpreview::js/dflip.min.js" />
+    </head>
+    <body>
+		<referenceBlock name="content">
+			<block class="CesarMartins\Pdfpreview\Block\Pdfpreview" name="pdfpreview" as="pdfpreview" template="CesarMartins_Pdfpreview::detalhepreview.phtml"/>
+		</referenceBlock>
+	</body>
+</page>

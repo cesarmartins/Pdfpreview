@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="cesarMartins_pdfpreview_pdfpreview" resource="default" engine="innodb" comment="cesarMartins_pdfpreview_pdfpreview Table">
+		<column xsi:type="smallint" name="pdfpreview_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="pdfpreview_id"/>
+		</constraint>
+		<column name="title" nullable="true" xsi:type="text" comment="title"/>
+		<column name="author" nullable="true" xsi:type="text" comment="author"/>
+		<column name="description" nullable="true" xsi:type="text" comment="description"/>
+		<column name="thumbnail" nullable="true" xsi:type="blob" comment="thumbnail"/>
+		<column name="book" nullable="true" xsi:type="blob" comment="book"/>
+		<column name="category" nullable="true" xsi:type="int" comment="category" identity="false"/>
+		<column name="publishing" nullable="true" xsi:type="int" comment="publishing" identity="false"/>
+		<column name="status" nullable="true" xsi:type="smallint" comment="status" identity="false"/>
+		<column name="created_time" nullable="true" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false"/>
+		<column name="update_time" nullable="true" xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true"/>
+	</table>
+</schema>

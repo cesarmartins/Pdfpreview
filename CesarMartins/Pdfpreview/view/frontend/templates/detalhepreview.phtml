@@ -1,0 +1,17 @@
+<?php
+/* @var $block CesarMartins\Pdfpreview\Block\Pdfpreview */
+$variavel = $block->getBook();
+
+?>
+<div class="container" data-mage-init='{"pdfpreview": {}}'>
+
+    <div class="row">
+        <div class="col-xs-12" style="padding-bottom:30px">
+            <!--Normal FLipbook-->
+            <div class="_df_book" height="800" webgl="true" backgroundcolor="teal"
+                 source="<?= $block->getBookPreview($variavel["book"]); ?>"
+                 id="<?= $variavel["pdfpreview_id"]; ?>">
+            </div>
+        </div>
+    </div>
+</div>
