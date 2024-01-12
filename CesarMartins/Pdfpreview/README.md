@@ -1,3 +1,5 @@
+PDF viewing module with magento 2
+
 # Mage2 Module CesarMartins Pdfpreview
 
     ``cesarMartins/module-pdfpreview``
@@ -10,7 +12,7 @@
 
 
 ## Main Functionalities
-modulo de preview de revistas
+Magazine preview module
 
 ## Installation
 \* = in production please use the `--keep-generated` option
